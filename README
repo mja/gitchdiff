@@ -1,0 +1,14 @@
+A script for integrating git with Changes.app. Slightly modified from http://pastie.org/154707 (by Simon Menke and Jonathan del Strother).
+
+Usage:                                                                             
+  gitchdiff [-r:] [repository]                                                   
+                                                                                                      
+ Example:                                                                                             
+  gitchdiff                                                              
+  gitchdiff -rHEAD^:HEAD                          # == gitchdiff -rHEAD^:HEAD .                      
+  gitchdiff -master:origin/master                 # == gitchdiff -rmaster:origin/master .             
+  gitchdiff /path/to/git/repository               # == gitchdiff -rHEAD^:HEAD /path/to/git/repository 
+  gitchdiff -rHEAD^:HEAD /path/to/git/repository  # == gitchdiff -rHEAD^:HEAD /path/to/git/repository 
+  
+  
+The change from the pastie version of the script is that, if you forgo the -r flag, the script will compare the current working tree (uncommitted and untracked changes) to HEAD. This mimics what you get with `git diff` except that it includes untracked files as well. 
